@@ -1,0 +1,21 @@
+[package]
+name = "proc_macro_hack_bug_impl"
+version = "0.1.0"
+authors = ["olegnn <olegnosov1@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "proc_macro_hack_bug_impl"
+proc-macro = true
+
+[features]
+std = []
+
+[dependencies]
+proc-macro2 = "1.0.3"
+proc-macro-hack = "0.5.9"
+quote = "1.0.2"
+syn = { version = "1.0", features = ["full", "extra-traits"] }
+
