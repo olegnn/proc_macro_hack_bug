@@ -9,7 +9,7 @@ use futures::join;
 
 use proc_macro_hack::proc_macro_hack;
 
-#[proc_macro_hack(support_nested)]
+#[proc_macro_hack(support_nested, internal_macro_calls = 1)]
 pub use proc_macro_hack_bug_impl::join_all;
 
 #[allow(dead_code)]
