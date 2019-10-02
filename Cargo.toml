@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 proc-macro2 = "1.0.3"
-proc-macro-hack = "0.5.9"
+proc-macro-hack = "0.5.10"
 proc-macro-nested = "0.1.3"
 proc_macro_hack_bug_impl = { path = "./proc_macro_hack_bug_impl" }
 futures = { version = "=0.3.0-alpha.19", package = "futures-preview", features=["async-await"] }
