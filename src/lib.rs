@@ -12,7 +12,7 @@ use futures::join;
 use proc_macro_hack::proc_macro_hack;
 
 #[allow(dead_code)]
-async fn add_nestded_joined_results() -> usize {
+async fn add_nested_joined_results() -> usize {
     let results = join!(
         ready(join!(ready(7usize)).0),
         ready(join!(ready(8usize)).0),
@@ -63,8 +63,8 @@ mod tests {
     use futures::executor::block_on;
 
     #[test]
-    fn checks_add_nestded_joined_results_function() {
-        assert_eq!(block_on(add_nestded_joined_results()), 24);
+    fn checks_add_nested_joined_results_function() {
+        assert_eq!(block_on(add_nested_joined_results()), 24);
     }
 
     #[test]
@@ -73,12 +73,12 @@ mod tests {
     }
 
     #[test]
-    fn checks_add_nested_custom_joined_x2_results() {
+    fn checks_add_nested_custom_joined_x2_results_function() {
         assert_eq!(block_on(add_nested_custom_joined_x2_results()), 24);
     }
 
     #[test]
-    fn checks_add_nested_custom_joined_combined_results() {
+    fn checks_add_nested_custom_joined_combined_results_function() {
         assert_eq!(block_on(add_nested_custom_joined_combined_results()), 24);
     }
 }
