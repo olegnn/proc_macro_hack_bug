@@ -42,5 +42,20 @@ impl Parse for JoinAll {
 pub fn join_all(input: TokenStream) -> TokenStream {
     let JoinAll { expressions } = syn::parse_macro_input!(input as JoinAll);
 
-    TokenStream::from(quote! { ::futures::join!(#(#expressions),*) })
+    TokenStream::from(
+        quote! { 
+           ::futures::join!(#(#expressions),*)
+        }
+    )
+}
+
+#[proc_macro_hack]
+pub fn join_all_x2(input: TokenStream) -> TokenStream {
+    let JoinAll { expressions } = syn::parse_macro_input!(input as JoinAll);
+
+    TokenStream::from(
+        quote! { 
+           ::futures::join!(::futures::future::ready(::futures::join!(#(#expressions),*))).0
+        }
+    )
 }
